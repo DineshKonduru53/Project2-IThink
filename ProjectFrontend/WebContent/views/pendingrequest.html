@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Pending Requests</title>
+</head>
+
+<body>
+
+<div class="w3-animate-opacity">
+
+<table class="table table-responsive"  height="80px" width="100px" >
+
+<tr>
+<th>Username</th>
+<th>Profile Pic</th>
+<th>Accept</th>
+<th>Deny</th>
+</tr>
+
+<tr ng-repeat="p in pendingRequest">
+
+<td><a href=#/getUserDetails/{{p.fromid}}>{{p.fromid}}</a></td>
+<td><img src="http://localhost:8080/ProjectMiddleware/getimage/{{p.fromid}}"
+								width="30px" height="30px" class="img-rounded">
+
+<td><a href="" ng-click="updateRequest(p,'A')" class="btn btn-success">Accept</a></td>
+<td><a href="" ng-click="updateRequest(p,'D')" class="btn btn-danger">Deny</a></td>
+</tr>
+
+</table>
+<li style="list-style:none;">
+{{p.fromId}}
+</li>
+
+</div>
+
+</body>
+
+<style>
+	body {
+   background-image: url("https://thumbs.dreamstime.com/z/facebook-friend-request-graphic-cursor-hovering-over-ignore-vector-can-be-resized-re-coloured-55729880.jpg");
+  background-color: #cccccc;
+   background-repeat:no-repeat;
+    background-size:cover;
+    
+}
+	</style>
+</html>

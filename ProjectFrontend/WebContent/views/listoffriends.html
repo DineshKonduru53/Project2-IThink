@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>List of Friends</title>
+</head>
+<body>
+
+<div class="w3-animate-opacity">
+
+<h1><strong>Your Friends</strong></h1>
+<p>Here are a list of your friends...</p>
+<br>
+
+<table class="table table-responsive">
+
+<tr>
+
+<th>Names</th>
+<!-- <th>Engage in a conversation</th>-->
+</tr>
+
+<tr ng-repeat="f in friends">
+<td ng-hide="f.fromid==currentUser.username">{{f.fromid}}</td>
+<td ng-hide="f.toid==currentUser.username">{{f.toid}}</td>
+<!--  <td><img src="http://localhost:8080/ProjectMiddleware/getimage/{{f.fromid}}"
+								width="30px" height="30px" class="img-rounded"></span></a>-->
+ <td><img src="http://localhost:8080/ProjectMiddleware/getimage/{{f.fromid}}"
+ng-hide="f.fromId==currentUser.username" width="50" height="50" class="img-rounded">
+<img src="http://localhost:8080/ProjectMiddleware/getimage/{{f.toid}}"
+ng-hide="f.toid==currentUser.username" width="50" height="50" class="img-rounded"></td>
+
+</tr>
+</table>
+
+
+</div>
+
+</body>
+<style>
+	body {
+   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCAjWQLT-hVUZ-JHKwmCEGaF0gPnYEtKjpfJFTSqF6uVNVf29Y");
+  background-color: #cccccc;
+   background-repeat:no-repeat;
+    background-size:cover;
+    
+}
+	</style>
+</html>

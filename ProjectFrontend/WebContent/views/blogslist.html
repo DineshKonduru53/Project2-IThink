@@ -1,0 +1,52 @@
+<body>
+
+<div ng-show="currentUser.role=='ADMIN'">
+	<h3>List Of Blogs waiting for approval</h3>
+	<div ng-if="blogsWaitingForApproval.length==0">No blogposts available</div>
+<table ng-show="blogsWaitingForApproval.length>0" class="table table-striped">
+		<thead>
+			<tr>
+				<td>Blog Title</td>
+				<td>Author</td>
+				<td>Posted On</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="blogPost in blogsWaitingForApproval">
+				<td><a href="#/admin/getblog/{{blogPost.id}}">{{blogPost.blogTitle}}</a></td>
+				<td>{{blogPost.postedBy.username}}
+				<td>{{blogPost.postedOn | date : 'medium'}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div>
+	<h3>List of blogs approved</h3>
+	<div ng-if="blogsApproved.length==0">No Approved blogposts available</div>
+	<table ng-show="blogsApproved.length>0" class="table table-striped">
+		<thead>
+			<tr>
+				<td>Blog Title</td>
+				<td>Author</td>
+				<td>Posted On</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="blogPost in blogsApproved | orderBy: '-postedOn'">
+				<td><a href="#/getblog/{{blogPost.id}}">{{blogPost.blogTitle}}</a></td>
+				<td>{{blogPost.postedBy.username}}</td>
+				<td>{{blogPost.postedOn | date : 'medium'}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+
+<style>
+body {
+   background-image: url("https://ak4.picdn.net/shutterstock/videos/1143424/thumb/1.jpg");
+  background-color: #cccccc;
+   background-repeat:no-repeat;
+    background-size:cover;
+}
+</style>

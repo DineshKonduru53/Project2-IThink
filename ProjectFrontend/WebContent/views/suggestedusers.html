@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="w3-animate-opacity">
+
+<div class="container">
+<table class="table table-responsive" height="50px" width="1200px" >
+
+<tr>
+<th>Username</th>
+<th>E-mail</th>
+<th>Online</th>
+<th>Role</th>
+<th>Friend Request</th>
+</tr>
+
+<tr ng-repeat="users in suggestuser">
+<td>{{users.username}}</td>
+<td>{{users.email}}</td>
+<td ng-if="users.online">Yes</td>
+<td ng-if="!users.online">No</td>
+<td>{{users.role}}</td>
+<td><button ng-click="friendRequest(users.username)" type="button" class="btn btn-success btn-md">Send a Friend Request</button></td>
+</tr>
+
+</table>
+</div>
+
+
+</div>
+</body>
+<style>
+	body {
+   background-image: url("http://home.bt.com/images/discover-who-has-ignored-your-facebook-friend-requests-136404683836403901-160318105016.jpg");
+  background-color: #cccccc;
+   background-repeat:no-repeat;
+    background-size:cover;
+}
+	</style>
+</html>

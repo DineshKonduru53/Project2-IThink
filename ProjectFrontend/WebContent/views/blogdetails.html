@@ -1,0 +1,70 @@
+<div class="container" >
+
+<div class="col-md-5" >
+   
+ <div class="form-area" >
+ <form name="myform" novalidate >
+        
+<br style="clear:both">
+                 
+<h4 style="margin-bottom: 25px; text-align: center;">BlogPost Approval Form</h4>
+
+
+<div class="row">
+	<div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<b>{{blogPost.blogTitle}}</b><br>
+				 <b>Created By:</b>{{blogPost.postedBy.username}}<br>
+				<b>Created On:</b>{{blogPost.postedOn | date :'yyyy:MM:dd'}}
+			</div>
+			<div class="panel-body">{{blogPost.blogContent}}</div>
+
+			<a></a> <br>
+		</div>
+	</div>
+</div>
+<b>Number of likes</b>{{blogPost.likes}}
+<div ng-show="liked">
+<span class="glyphicon glyphicon-thumbs-up" style="color:blue" ng-click="updateLikes()"></span>
+</div>
+<div ng-show="!liked">
+<span class="glyphicon glyphicon-thumbs-up" style="color:black" ng-click="updateLikes()"></span>
+</div>
+
+Blog Comments
+<div class="container">
+	<textarea rows="4" cols="15" ng-model="commentText"></textarea>
+	<br>
+	<!--  insert into blogcomment values (?,blogpostid,username,commenttext,commentedon) -->
+	
+	<input type="submit" ng-click="addComment()" value="POST COMMENT">
+</div>
+
+	<div>
+	 <b> <a href="" ng-click="showComments()">{{blogPost.blogComments.length}} comments</a></b>
+		<ul ng-show="showComment" style="list-style:none">
+			<li
+				ng-repeat="comment in blogPost.blogComments | orderBy:'-commentedOn'">
+				{{comment.commentText}}<br> <strong>Commented By </strong>
+				{{comment.commentedBy.username}} &nbsp; <strong>Commented
+					On</strong> {{comment.commentedOn | date : 'medium'}}
+			</li>
+		</ul>
+	</div>
+
+
+</form>
+</div>
+</div>
+</div>
+
+
+	<style>
+	body {
+   background-image: url("http://www.999wefm.com/wp-content/uploads/2017/02/9c1086b5cb577fcd66f44a3d3f811542_approved-stamp-clipart-best-approve-clipart_400-224.jpeg");
+  background-color: #cccccc;
+   background-repeat:no-repeat;
+    background-size:cover;
+}
+	</style>

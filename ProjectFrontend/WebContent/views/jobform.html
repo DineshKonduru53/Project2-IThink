@@ -1,0 +1,111 @@
+
+<style>
+.red{
+color:red;   
+}
+.form-area
+{
+background-color: #FAFAFA;
+padding: 10px 40px 60px;
+margin: 10px 0px 60px;
+border: 1px solid GREY;	
+}
+
+body {
+   background-image: url("https://ak2.picdn.net/shutterstock/videos/25104992/thumb/9.jpg");
+   background-color: #cccccc;
+   background-repeat:no-repeat;
+    background-size:cover;
+}
+.form-area {
+	width: 100%;
+	margin: auto;
+	max-width: 400px;
+	border-radius: 2px;
+	box-shadow: $shadow2;
+	background-color: rgba(0,0,0,0.2);
+}
+h4{
+color:blue;
+}
+h5{
+color:red;
+}
+
+</style>
+
+
+
+<div class="container">
+
+<div class="col-md-5">
+   
+ <div class="form-area">  
+<span style="color:red" ng-if="error.code==1">{{error.message}}</span>      
+ <form name="myform" novalidate>
+        
+<br style="clear:both">
+                 
+<h4 style="margin-bottom: 25px; text-align: center;">Add Job Form</h4>
+    	
+<div class="form-group">
+<h4>Enter Job Title : </h4>					
+<input type="text" class="form-control" ng-model="job.jobtitle" name="jobtitle" placeholder="Job Title" required ng-minlength="5">
+<h5>
+<span ng-show="myform.jobtitle.$touched && myform.jobtitle.$error.required">JobTitle is Required</span>
+<span ng-show="myform.jobtitle.$dirty && myform.jobtitle.$error.minlength">JobTitle must be atleast 5 characters</span>
+	</h5>	
+</div>
+				
+<div class="form-group">
+<h4>Enter Job Description:	</h4>				
+<textarea rows="4" cols="15" ng-model="job.jobDescription" name="desc" class="form-control" placeholder="Job Description" required></textarea>
+<h5><span ng-show="myform.desc.$touched && myform.desc.$error.required">Description is Required</span>	</h5>				
+</div>
+					
+<div class="form-group">
+<h4>Enter Skills Required: 	</h4>			
+<input type="text" ng-model="job.skillsrequired"  name="skills" class="form-control" placeholder="Skills Required" required>
+<h5><span ng-show="myform.skills.$touched && myform.skills.$error.required">Skills is Required</span>	</h5>					
+</div>
+					
+<div class="form-group">
+<h4>Enter Years of Experience:	</h4>				
+<input type="text" ng-model="job.yrsOfExp" class="form-control" name="exp" placeholder="Experience" required>
+<h5><span ng-show="myform.exp.$touched && myform.exp.$error.required">Experience is Required</span>	</h5>				
+</div>
+                    
+<div class="form-group">
+<h4>Enter Salary:   </h4>                 
+<input input type="text" ng-model="job.salary" name="sal" class="form-control" placeholder="Salary" required>
+<h5><span ng-show="myform.sal.$touched && myform.sal.$error.required">Salary is required</span>
+ </h5>
+</div>
+
+<div class="form-group">
+<h4>Enter Location :     </h4>              
+<input input type="text" ng-model="job.location" name="loc" class="form-control"  placeholder="Location" required>
+<h5><span ng-show="myform.loc.$touched && myform.loc.$error.required">Location is required</span>
+ </h5>
+</div>
+
+<div class="form-group">
+<h4>Enter Company Name:    </h4>              
+<input input type="text" ng-model="job.companyname"  name="com" class="form-control"  placeholder="Company" required>
+<h5><span ng-show="myform.com.$touched && myform.com.$error.required">Company is Requires</span>
+ </h5>
+</div>
+       
+<button type="submit" value="Register" ng-click="saveJob()" ng-disabled="myform.$invalid" class="btn btn-primary pull-right"><h4>Submit Job</h4></button>
+
+      <!-- 1 -->   
+</form>
+    
+</div>
+
+</div>
+
+</div>
+
+
+

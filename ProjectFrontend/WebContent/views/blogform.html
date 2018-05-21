@@ -1,0 +1,58 @@
+
+
+<div class="container" >
+
+<div class="col-md-5" >
+   
+ <div class="form-area" > 
+<form name="myform" novalidate >
+        
+<br style="clear:both">
+                 
+<h4 style="margin-bottom: 25px; text-align: center;">Add Blog</h4>
+
+{{error.message}}
+
+<div class="form-group">
+Enter Blog Title
+<input type="text" ng-model="blog.blogTitle" class="form-control">
+</div>
+<div class="form-group">
+Enter Blog Content
+<textarea ng-model="blog.blogContent" class="form-control"></textarea>
+</div>
+<input type="submit" ng-click="saveBlog()">
+</form>
+
+</div>
+</div>
+</div>
+
+
+<style>
+.form-area
+{
+background-color: #FAFAFA;
+padding: 10px 40px 60px;
+margin: 10px 0px 60px;
+border: 1px solid GREY;	
+}
+
+body {
+   background-image: url("http://warehousedating.com/wp-content/uploads/2015/09/900x491xblog.jpg.pagespeed.ic_.6q8exGGBHZ.jpg");
+  background-color: #cccccc;
+   background-repeat:no-repeat;
+    background-size:cover;
+}
+
+
+.form-area {
+	width: 100%;
+	margin: auto;
+	max-width: 400px;
+	border-radius: 2px;
+	box-shadow: $shadow2;
+	background-color: rgba(0,0,0,0.2);
+}
+
+</style>

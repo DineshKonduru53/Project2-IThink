@@ -1,0 +1,103 @@
+<style>
+.red{
+color:red;   
+}
+.form-area
+{
+background-color: #FAFAFA;
+padding: 10px 40px 60px;
+margin: 10px 0px 60px;
+border: 1px solid GREY;	
+}
+
+body {
+   background-image: url("https://image.shutterstock.com/z/stock-photo-register-here-concept-with-hand-pressing-social-icons-on-blue-world-map-background-237715117.jpg");
+  background-color: #cccccc;
+   background-repeat:no-repeat;
+    background-size:cover;
+}
+.form-area {
+	width: 100%;
+	margin: auto;
+	max-width: 400px;
+	border-radius: 2px;
+	box-shadow: $shadow2;
+	background-color: rgba(0,0,0,0.2);
+}
+h4{
+color:green;
+}
+h5{
+color:red;
+}
+
+</style>
+
+<div class="container">
+
+<div class="col-md-5">
+   
+ <div class="form-area">  
+<span style="color:red" ng-if="error.code==1">{{error.message}}</span>      
+ <form name="myform" novalidate>
+        
+<br style="clear:both">
+                 
+<h4 style="margin-bottom: 25px; text-align: center;">Register Form</h4>
+    	
+<div class="form-group">
+<h4>Enter Username : </h4>					
+<input type="text" class="form-control" ng-model="user.username" name="uname" placeholder="User Name" required ng-minlength="3">
+<h5>
+<span ng-show="myform.uname.$touched && myform.uname.$error.required">Username is Required</span>
+<span ng-show="myform.uname.$dirty && myform.uname.$error.minlength">Username must be atleast 3 characters</span>
+<span style="color:red" ng-if="error.code==2">{{error.message}}</span>	</h5>		
+</div>
+				
+<div class="form-group">
+<h4>Enter Password:		</h4>				
+<input type="password" ng-model="user.password" name="pass" class="form-control" placeholder="Password" required>
+<h5><span ng-show="myform.pass.$touched && myform.pass.$error.required">Password is Required</span>	</h5>				
+</div>
+					
+<div class="form-group">
+<h4>Enter Firstname :	</h4>			
+<input type="text" ng-model="user.firstname" name="first" class="form-control" placeholder="First Name" required>
+<h5><span ng-show="myform.first.$touched && myform.first.$error.required">Firstname is Required</span>	</h5>					
+</div>
+					
+<div class="form-group">
+<h4>Enter Lastname :	</h4>				
+<input type="text" ng-model="user.lastname" class="form-control" placeholder="Last Name" required>
+			
+</div>
+                    
+<div class="form-group">
+<h4>Enter Email :   </h4>                 
+<input input type="email" ng-model="user.email" name="email" class="form-control" placeholder="Email" required>
+<h5><span ng-show="myform.email.$touched && myform.email.$error.required">Email is Required</span>
+<span ng-show="myform.email.$dirty && myform.email.$error.email">Email address is not in valid format</span>
+<span style="color:red" ng-if="error.code==3">{{error.message}}</span> </h5>
+</div>
+
+<div class="form-group">
+<h4>Enter Phonenumber:      </h4>              
+<input input type="text" ng-model="user.phonenumber" class="form-control" pattern="[0-9]{10}" maxlength="10" placeholder="Mobile Number" required>
+
+</div>
+
+<h4>Select Role: <br>
+<input type="radio" value="STUDENT" ng-model="user.role">Student  
+<input type="radio" value="EMPLOYEE" ng-model="user.role"> Employee
+<input type="radio" value="ALUMNI" ng-model="user.role"> Alumni </h4>
+       
+<button type="submit" value="Register" ng-click="registerUser()" ng-disabled="myform.$invalid" class="btn btn-primary pull-right"><h4>Submit Form</h4></button>
+
+      <!-- 1 -->   
+</form>
+    
+</div>
+
+</div>
+
+</div>

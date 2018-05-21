@@ -1,0 +1,52 @@
+<body>
+<div class="container" >
+
+<div class="col-md-5" >
+   
+ <div class="form-area" >
+ <form name="myform" novalidate >
+        
+<br style="clear:both">
+                 
+<h4 style="margin-bottom: 25px; text-align: center;">BlogPost Approval Form</h4>
+ 
+<div class="row">
+<div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<b>Blog Title : {{blogPost.blogTitle}}</b><br>
+
+<b>Created By:</b>{{blogPost.postedBy.username}}<br>
+<b>Created On:</b>{{blogPost.postedOn | date :'yyyy:MM:dd'}}
+</div>
+<div class="panel-body">
+{{blogPost.blogContent}}
+</div>
+</div>
+</div>
+</div>
+
+<input type="radio" ng-model="blogPost.approved" value="true" ng-click="showRejectionTxt(false)">Approve
+<input type="radio" ng-model="blogPost.approved" value="false" ng-click="showRejectionTxt(true)">Reject
+<br>
+<div ng-show="isRejected">
+Enter Rejection Reason
+<input type="text" ng-model="rejectionReason" ><br>
+</div>
+<input type="submit" ng-click="updateBlogPost()"><!-- update query / delete query -->
+
+{{error.message}}
+</form>
+</div>
+</div>
+</div>
+</body>
+
+<style>
+body {
+   background-image: url("https://ak0.picdn.net/shutterstock/videos/26845810/thumb/9.jpg");
+  background-color: #cccccc;
+   background-repeat:no-repeat;
+    background-size:cover;
+}
+</style>
